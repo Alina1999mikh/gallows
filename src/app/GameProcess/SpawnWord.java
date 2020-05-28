@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class SpawnWord {
-   public static void dataBase() throws IOException {
+    public static void dataBase() throws IOException {
         System.out.println("Выберите сложность игры, введите: 1 - легкая, 2 - средняя, 3 - сложная");
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
         int difficulty = Integer.parseInt(rd.readLine());
@@ -16,11 +16,11 @@ public class SpawnWord {
                 difficulty = Integer.parseInt(rd.readLine());
             } else break;
         }
-        File dataBaseFileEasy = new File(".\\src\\app\\GameProcess\\BaseWords\\1.txt");
-        File dataBaseFileNormal = new File(".\\src\\app\\GameProcess\\BaseWords\\2.txt");
-        File dataBaseFileHard = new File(".\\src\\app\\GameProcess\\BaseWords\\3.txt");
+        File dataBaseFileEasy = new File(".\\src\\app\\BaseWords\\1.txt");
+        File dataBaseFileNormal = new File(".\\src\\app\\BaseWords\\2.txt");
+        File dataBaseFileHard = new File(".\\src\\app\\BaseWords\\3.txt");
         if (!dataBaseFileEasy.exists()) {
-            dataBaseFileEasy.createNewFile();
+            dataBaseFileEasy.createNewFile(); //TODO processing
         }
         if (!dataBaseFileNormal.exists()) {
             dataBaseFileNormal.createNewFile();
@@ -28,8 +28,7 @@ public class SpawnWord {
         if (!dataBaseFileHard.exists()) {
             dataBaseFileHard.createNewFile();
         }
-
-        }
     }
+}
 
 
