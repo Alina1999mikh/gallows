@@ -1,24 +1,26 @@
+package GameProcess;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
-class Round {
+public class Round {
     private char[] symbol;
     private char[] word;
     private int live = 6;
     private char closeSymbol = '-';
 
-    Round(String word) {
+    public Round(String word) {
         symbol = new char[word.length()];
         this.word = word.toCharArray();
         Arrays.fill(symbol, closeSymbol);
     }
 
-    void process() {
+    public void process() {
         while (checkAvailable(closeSymbol) && live > 0) {
             System.out.println("input char");
             Scanner scanner = new Scanner(System.in);
             char inputSymbol = scanner.next().charAt(0);
-            System.out.println("Your symbol" + inputSymbol);
+            System.out.println("Your symbol " + inputSymbol);
             if (!putSymbol(inputSymbol)) {
                 live--;
                 System.out.println("Bad symbol! live= " + live);
