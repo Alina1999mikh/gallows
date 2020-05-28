@@ -49,6 +49,14 @@ public class Word {
         return structureWord;
     }
 
+    public void deleteStructureWord(Character key) {
+        structureWord.remove(key);
+    }
+
+    public void setStructureWord(Map<Character, ArrayList<Integer>> structureWord) {
+        this.structureWord = structureWord;
+    }
+
     public char closeSymbol() {
         return CLOSE_SYMBOL;
     }

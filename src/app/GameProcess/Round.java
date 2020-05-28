@@ -19,7 +19,8 @@ public class Round {
 
     public void process() {
         System.out.println(word.toString());
-        while (checkAvailable(word.closeSymbol()) && live > 0) {
+        while (!word.getStructureWord().isEmpty() && live > 0) {
+            System.out.println("j " + word.getStructureWord().toString());
             char inputSymbol = input();
             if (!putSymbol(inputSymbol)) {
                 live--;
@@ -46,16 +47,8 @@ public class Round {
             for (Integer i : map) {
                 word.setGuessSymbol(i, key);
             }
+            word.deleteStructureWord(key);
             return true;
-        }
-        return false;
-    }
-
-    private boolean checkAvailable(char key) {
-        for (char c : word.getGuessSymbol()) {
-            if (c == key) {
-                return true;
-            }
         }
         return false;
     }
