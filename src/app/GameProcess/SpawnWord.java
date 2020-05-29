@@ -6,13 +6,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class SpawnWord {
-    public static void dataBase() throws IOException {
-        System.out.println("Выберите сложность игры, введите: 1 - легкая, 2 - средняя, 3 - сложная");
+
+   public static void dataBase() throws IOException {
+        System.out.println("Choose game difficulty, enter: 1 - easy, 2 - normal, 3 - hard");
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
         int difficulty = Integer.parseInt(rd.readLine());
         while (true) {
             if ((difficulty > 3) || (difficulty < 1)) {
-                System.out.println("Сложность введена неправильно, попробуйте еще раз");
+                System.out.println("Difficulty  is entered incorrectly, try again");
                 difficulty = Integer.parseInt(rd.readLine());
             } else break;
         }
@@ -30,5 +31,3 @@ public class SpawnWord {
         }
     }
 }
-
-
