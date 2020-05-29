@@ -2,15 +2,12 @@ package GameProcess;
 
 import model.Word;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Round {
 
-    private int live = 6;
-    private Set<Character> usedWord = new HashSet<>();
+    private int life = 6;
+    private Set<Character> use = new HashSet<>();
     private Word word;
 
     public Round(String inWord) {
@@ -19,19 +16,19 @@ public class Round {
 
     public void process() {
         System.out.println(word.toString());
-        while (!word.getStructureWord().isEmpty() && live > 0) {
+        while (!word.getStructureWord().isEmpty() && life > 0) {
             System.out.println("j " + word.getStructureWord().toString());
             char inputSymbol = input();
             strokeProcessing(inputSymbol);
             System.out.println(word.toString());
-            System.out.println(usedWord.toString());
+            System.out.println(use.toString());
         }
     }
 
     private void strokeProcessing(char inputSymbol) {
         if (!putSymbol(inputSymbol)) {
-            live--;
-            System.out.println("Bad symbol! live= " + live);
+            life--;
+            System.out.println("Bad symbol! life= " + life);
         } else System.out.println("Good symbol!");
     }
 
@@ -40,13 +37,13 @@ public class Round {
             System.out.println("input char");
             Scanner scanner = new Scanner(System.in);
             char inputSymbol = scanner.next().charAt(0);
-            if (usedWord.add(inputSymbol)) return inputSymbol;
+            if (use.add(inputSymbol)) return inputSymbol;
             else System.out.println("Символ уже был");
         }
     }
 
     private boolean putSymbol(char key) {
-        ArrayList<Integer> map = word.getStructureWord().get(key);
+        List<Integer> map = word.getStructureWord().get(key);
         if (map != null) {
             for (Integer i : map) {
                 word.setGuessSymbol(i, key);
@@ -55,5 +52,17 @@ public class Round {
             return true;
         }
         return false;
+    }
+
+    int life() {
+        return life;
+    }
+
+   Word getWord() {
+        return word;
+    }
+
+    void strokeProcessingTest(char inputSymbol) {
+        strokeProcessing(inputSymbol);
     }
 }
