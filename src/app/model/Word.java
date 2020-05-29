@@ -11,20 +11,20 @@ public class Word {
     private char[] guessSymbol;
     private char[] openWord;
 
-    public Word(String inputWord, int left, int right) {
-        this.guessSymbol = new char[inputWord.length()];
-        openWord = inputWord.toCharArray();
+    public Word(String inWord, int left, int right) {
+        this.guessSymbol = new char[inWord.length()];
+        openWord = inWord.toCharArray();
         openExtreme(left, right);
-        createStructureWord(inputWord, left, right);
+        createStructureWord(inWord, left, right);
         Arrays.fill(guessSymbol, left, right, CLOSE_SYMBOL);
     }
 
-    public Word(String inputWord) {
-        this(inputWord,0,inputWord.length());
+    public Word(String inWord) {
+        this(inWord,0,inWord.length());
     }
 
-    private void createStructureWord(String inputWord, int left, int right) {
-        char[] massiveWord = inputWord.toCharArray();
+    private void createStructureWord(String inWord, int left, int right) {
+        char[] massiveWord = inWord.toCharArray();
         for (int i = left; i < right; i++) {
             if (massiveWord[i] != CLOSE_SYMBOL) {
                 ArrayList<Integer> index = new ArrayList<>();

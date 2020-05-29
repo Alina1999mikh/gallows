@@ -13,8 +13,8 @@ public class Round {
     private Set<Character> usedWord = new HashSet<>();
     private Word word;
 
-    public Round(String inputWord) {
-        this.word = new Word(inputWord, 1, inputWord.length() - 1);
+    public Round(String inWord) {
+        this.word = new Word(inWord, 1, inWord.length() - 1);
     }
 
     public void process() {
