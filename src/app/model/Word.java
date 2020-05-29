@@ -19,6 +19,10 @@ public class Word {
         Arrays.fill(guessSymbol, left, right, CLOSE_SYMBOL);
     }
 
+    public Word(String inputWord) {
+        this(inputWord,0,inputWord.length());
+    }
+
     private void createStructureWord(String inputWord, int left, int right) {
         char[] massiveWord = inputWord.toCharArray();
         for (int i = left; i < right; i++) {

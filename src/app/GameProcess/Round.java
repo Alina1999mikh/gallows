@@ -22,13 +22,17 @@ public class Round {
         while (!word.getStructureWord().isEmpty() && live > 0) {
             System.out.println("j " + word.getStructureWord().toString());
             char inputSymbol = input();
-            if (!putSymbol(inputSymbol)) {
-                live--;
-                System.out.println("Bad symbol! live= " + live);
-            } else System.out.println("Good symbol!");
+            strokeProcessing(inputSymbol);
             System.out.println(word.toString());
             System.out.println(usedWord.toString());
         }
+    }
+
+    private void strokeProcessing(char inputSymbol) {
+        if (!putSymbol(inputSymbol)) {
+            live--;
+            System.out.println("Bad symbol! live= " + live);
+        } else System.out.println("Good symbol!");
     }
 
     private char input() {
