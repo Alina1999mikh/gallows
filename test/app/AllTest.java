@@ -1,5 +1,7 @@
-import GameProcess.RoundTest;
-import model.WordTest;
+package app;
+
+import app.GameProcess.RoundTest;
+import app.model.WordTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

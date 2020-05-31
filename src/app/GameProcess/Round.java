@@ -1,6 +1,6 @@
-package GameProcess;
+package app.GameProcess;
 
-import model.Word;
+import app.model.Word;
 
 import java.util.*;
 
@@ -10,8 +10,13 @@ public class Round {
     private Set<Character> use = new HashSet<>();
     private Word word;
 
+    public Round(String inWord, int left, int right) {
+        right=inWord.length()-right;
+        this.word = new Word(inWord, left, right);
+    }
+
     public Round(String inWord) {
-        this.word = new Word(inWord, 1, inWord.length() - 1);
+        this(inWord, 0, 0);
     }
 
     public void process() {

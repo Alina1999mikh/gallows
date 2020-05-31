@@ -1,4 +1,4 @@
-package GameProcess;
+package app.GameProcess;
 
 import java.io.BufferedReader;
 import java.io.File;

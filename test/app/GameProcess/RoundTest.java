@@ -1,10 +1,6 @@
-package GameProcess;
+package app.GameProcess;
 
-import GameProcess.Round;
-
-import model.Word;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -13,8 +9,8 @@ import java.util.Set;
 
 public class RoundTest {
     private static final String WORD_1 = "hello";
-    private Round round1 = new Round(WORD_1);
-    private Round round2 = new Round(WORD_1);
+    private Round round1 = new Round(WORD_1,1,1);
+    private Round round2 = new Round(WORD_1,1,1);
     private Set<Character> available = new HashSet<>(Arrays.asList('l', 'e'));
     private Set<Character> notAvailable = new HashSet<>(Arrays.asList('p', 'n', 'r'));
     private Set<Character> differentAvailable = new HashSet<>(Arrays.asList('n', 'e', 'r')); //here need to be only one element as in a word
