@@ -56,6 +56,8 @@ public class Round {
     private void openExtreme() {
         openEntrySymbol(word.getWord().get(0).getCharacter());
         openEntrySymbol(word.getWord().get(word.size() - 1).getCharacter());
+        use.add(word.getWord().get(0).getCharacter());
+        use.add(word.getWord().get(word.size() - 1).getCharacter());
     }
 
     private boolean isSolvedWord() {
