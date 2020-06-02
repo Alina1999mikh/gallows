@@ -7,8 +7,9 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Round round=new Round("mojno",1,2);
-        SpawnWord.dataBase();
+        Round round=new Round("mojno");
+        int difficutly=SpawnWord.dataBase();
+
         round.process();
     }
 }

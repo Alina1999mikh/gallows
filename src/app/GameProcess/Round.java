@@ -1,8 +1,11 @@
 package app.GameProcess;
 
+import app.model.Symbol;
 import app.model.Word;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Round {
 
@@ -10,31 +13,19 @@ public class Round {
     private Set<Character> use = new HashSet<>();
     private Word word;
 
-    public Round(String inWord, int left, int right) {
-        right=inWord.length()-right;
-        this.word = new Word(inWord, left, right);
-    }
-
     public Round(String inWord) {
-        this(inWord, 0, 0);
+        word = new Word(inWord);
     }
 
     public void process() {
-        System.out.println(word.toString());
-        while (!word.getStructureWord().isEmpty() && life > 0) {
-            System.out.println("j " + word.getStructureWord().toString());
-            char inputSymbol = input();
-            strokeProcessing(inputSymbol);
+        openExtreme();
+        while (!isSolvedWord() && life > 0) {
+            System.out.println("life " + life);
             System.out.println(word.toString());
-            System.out.println(use.toString());
+            char in = input();
+            if (!openEntrySymbol(in)) life--;
         }
-    }
-
-    private void strokeProcessing(char inputSymbol) {
-        if (!putSymbol(inputSymbol)) {
-            life--;
-            System.out.println("Bad symbol! life= " + life);
-        } else System.out.println("Good symbol!");
+        System.out.println(word.toString());
     }
 
     private char input() {
@@ -47,27 +38,38 @@ public class Round {
         }
     }
 
-    private boolean putSymbol(char key) {
-        List<Integer> map = word.getStructureWord().get(key);
-        if (map != null) {
-            for (Integer i : map) {
-                word.setGuessSymbol(i, key);
+    private void openSymbol(Symbol symbol) {
+        symbol.setView(true);
+    }
+
+    private boolean openEntrySymbol(char in) {
+        boolean flag = false;
+        for (Symbol symbol : word.getWord()) {
+            if (symbol.getCharacter() == in) {
+                openSymbol(symbol);
+                flag = true;
             }
-            word.deleteStructureWord(key);
-            return true;
         }
-        return false;
+        return flag;
+    }
+
+    private void openExtreme() {
+        openEntrySymbol(word.getWord().get(0).getCharacter());
+        openEntrySymbol(word.getWord().get(word.size() - 1).getCharacter());
+    }
+
+    private boolean isSolvedWord() {
+        for (Symbol symbol : word.getWord()) {
+            if (!symbol.isView()) return false;
+        }
+        return true;
     }
 
     int life() {
         return life;
     }
 
-   Word getWord() {
+    Word getWord() {
         return word;
-    }
-
-    void strokeProcessingTest(char inputSymbol) {
-        strokeProcessing(inputSymbol);
     }
 }
