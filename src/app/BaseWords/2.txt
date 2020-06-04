@@ -1,0 +1,6 @@
+purple
+black
+yellow
+orange
+blue
+white

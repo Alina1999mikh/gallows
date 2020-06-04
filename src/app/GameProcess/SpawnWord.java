@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class SpawnWord {
 
-   public static void dataBase() throws IOException {
+   public static int dataBase() throws IOException {
         System.out.println("Choose game difficulty, enter: 1 - easy, 2 - normal, 3 - hard");
         BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
         int difficulty = Integer.parseInt(rd.readLine());
@@ -29,5 +29,6 @@ public class SpawnWord {
         if (!dataBaseFileHard.exists()) {
             dataBaseFileHard.createNewFile();
         }
+        return difficulty;
     }
 }

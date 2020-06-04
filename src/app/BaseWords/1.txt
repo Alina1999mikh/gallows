@@ -1,3 +1,6 @@
-1. Sobaka
-2. Romashka
-3. Kartoshka 
+dog
+cat
+mouse
+house
+deck
+neck
