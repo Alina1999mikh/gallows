@@ -1,15 +1,11 @@
 package app;
 
-import app.GameProcess.Round;
-import app.GameProcess.SpawnWord;
-
+import app.GameProcess.NewGame;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Round round=new Round("mojno");
-        int difficutly=SpawnWord.dataBase();
+        NewGame newGame=new NewGame();
 
-        round.process();
     }
 }
